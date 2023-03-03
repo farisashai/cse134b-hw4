@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nativedialogs.css" />
+    <link rel="stylesheet" href="customdialog.css" />
+    <script src="purify.js"></script>
+    <script src="customdialog.js" type="module"></script>
+    <script src="customdialogscript.js" type="module" defer></script>
+  </head>
+  <body>
+    <button id="alert-2">Alert</button>
+    <button id="confirm-2">Confirm</button>
+    <button id="prompt-2">Prompt</button>
+    <output id="output-tag-2"></output>
+    <div class="dialog-container">
+      <dialog data-type="alert" id="dialog-box">
+        <form class="alert-content">
+          <p id="alert-message">Message</p>
+          <button id="alert-close" type="button">OK</button>
+        </form>
+        <form class="confirm-content">
+          <p id="confirm-message">Message</p>
+          <div class="confirm-buttons">
+            <button id="confirm-close" type="button">Cancel</button>
+            <button id="confirm-ok" type="button">OK</button>
+          </div>
+        </form>
+        <form class="prompt-content">
+          <p id="prompt-message">Message</p>
+          <input id="prompt-input" type="text" />
+          <button id="prompt-close" type="button">OK</button>
+        </form>
+      </dialog>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="blog.js" type="module" defer></script>
+    <title>Faris's Blog</title>
+  </head>
+  <body>
+    <h1>Faris's Blog</h1>
+    <button id="add-post">Add Post</button>
+    <dialog data-type="prompt" id="dialog">
+      <form class="add-post">
+        <h2 id="add-post-header">Add New Post</h2>
+        <input type="text" name="title" id="title" placeholder="Post Title" />
+        <input type="date" name="date" id="date" />
+        <textarea
+          name="desc"
+          id="description"
+          cols="30"
+          rows="10"
+          placeholder="Description"
+        ></textarea>
+        <button id="cancel" class="cancel-btn" type="button">Cancel</button
+        ><button id="close" type="button"><span id="close-text">Add Post</span></button>
+      </form>
+      <form class="confirm-content">
+        <p id="confirm-message">Are you sure you want to delete this event?</p>
+        <button id="confirm-close" class="cancel-btn" type="button">Cancel</button>
+        <button id="confirm-ok" type="button">Delete</button>
+      </form>
+    </dialog>
+    <ul class="posts" id="posts"></ul>
+  </body>
+</html>

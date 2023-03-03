@@ -1,0 +1,189 @@
+:root {
+  --blue: rgb(82, 82, 230);
+  --red: rgb(219, 28, 28);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+svg path {
+  fill: white;
+}
+
+button {
+  border: none;
+  background-color: var(--blue);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  color: white;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  width: 10rem;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+li {
+  list-style: none;
+}
+
+input,
+textarea {
+  border: 1px solid var(--blue);
+  padding: 8px 1rem;
+  border-radius: 8px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid var(--blue);
+  transition: border 100ms ease-in-out;
+}
+
+div.dialog-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+@keyframes open {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes close {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+    display: none;
+  }
+}
+
+dialog {
+  background-color: #ffffffee;
+  position: relative;
+  padding: 2rem;
+  width: 30rem;
+  min-height: 5rem;
+  z-index: 10;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  pointer-events: all;
+}
+
+dialog.close {
+  animation: close 200ms ease-in-out forwards !important;
+}
+dialog[open] {
+  animation: open 200ms ease-in-out forwards;
+}
+
+dialog > * {
+  display: none;
+}
+
+form.add-post,
+form.confirm-content {
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+dialog[data-type='prompt'] > .add-post,
+dialog[data-type='confirm'] > .confirm-content {
+  display: grid;
+}
+
+.add-post > h2 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.add-post > textarea {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 1rem;
+}
+
+.add-post > button {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+
+.confirm-content p {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.post-item {
+  background-color: #d2d2d243;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cancel-btn {
+  border: 1px solid var(--blue);
+  background-color: transparent;
+  color: var(--blue);
+  box-shadow: none;
+}
+
+#confirm-close {
+  border-color: var(--red);
+  color: var(--red);
+}
+#confirm-ok {
+  background-color: var(--red);
+}

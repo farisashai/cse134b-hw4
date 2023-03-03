@@ -1,0 +1,83 @@
+@keyframes open {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.dialog-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+dialog {
+  position: relative;
+  min-width: 15rem;
+  min-height: 5rem;
+  z-index: 10;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  pointer-events: all;
+}
+
+dialog[open] {
+  animation: open 250ms ease-in-out forwards;
+}
+dialog > * {
+  display: none;
+}
+
+dialog[data-type='alert'] .alert-content {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+dialog[data-type='confirm'] .confirm-content {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.confirm-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+dialog[data-type='prompt'] .prompt-content {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+input {
+  border: 1px solid rgb(82, 82, 230);
+  padding: 8px 1rem;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid rgb(82, 82, 230);
+  transition: border 100ms ease-in-out;
+}

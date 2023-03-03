@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="crud.css" />
+    <script src="blog.js" type="module" defer></script>
+    <title>Faris's Blog</title>
+  </head>
+  <body>
+    <h1>Faris's Blog</h1>
+    <button id="add-post">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.66669 19.3333V11.3333H0.666687V8.66667H8.66669V0.666672H11.3334V8.66667H19.3334V11.3333H11.3334V19.3333H8.66669Z"
+          fill="black"
+        />
+      </svg>
+      <span> Add Post </span>
+    </button>
+    <ul class="posts" id="posts"></ul>
+    <div class="dialog-container">
+      <dialog data-type="prompt" id="dialog">
+        <form class="add-post">
+          <h2 id="add-post-header">Add New Post</h2>
+          <input type="text" name="title" id="title" placeholder="Post Title" />
+          <input type="date" name="date" id="date" />
+          <textarea
+            name="desc"
+            id="description"
+            cols="30"
+            rows="10"
+            placeholder="Description"
+          ></textarea>
+          <button id="cancel" class="cancel-btn" type="button">Cancel</button
+          ><button id="close" type="button">
+            <svg
+              width="32"
+              height="28"
+              viewBox="0 0 32 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#filter0_d_12_9)">
+                <path
+                  d="M28 5.33334V21.3333C28 22.0667 27.7387 22.6947 27.216 23.2173C26.6933 23.74 26.0658 24.0009 25.3333 24H6.66667C5.93334 24 5.30534 23.7387 4.78267 23.216C4.26 22.6933 3.99911 22.0658 4 21.3333V2.66667C4 1.93334 4.26134 1.30534 4.784 0.782669C5.30667 0.260002 5.93422 -0.000886625 6.66667 2.26372e-06H22.6667L28 5.33334ZM16 20C17.1111 20 18.0556 19.6111 18.8333 18.8333C19.6111 18.0556 20 17.1111 20 16C20 14.8889 19.6111 13.9444 18.8333 13.1667C18.0556 12.3889 17.1111 12 16 12C14.8889 12 13.9444 12.3889 13.1667 13.1667C12.3889 13.9444 12 14.8889 12 16C12 17.1111 12.3889 18.0556 13.1667 18.8333C13.9444 19.6111 14.8889 20 16 20ZM8 9.33334H20V4H8V9.33334Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <filter
+                  id="filter0_d_12_9"
+                  x="0"
+                  y="0"
+                  width="32"
+                  height="32"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                  />
+                  <feOffset dy="4" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow_12_9"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_dropShadow_12_9"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+            </svg>
+            <span id="close-text">Add Post</span>
+          </button>
+        </form>
+        <form class="confirm-content">
+          <p id="confirm-message">Are you sure you want to delete this event?</p>
+          <button id="confirm-close" class="cancel-btn" type="button">Cancel</button>
+          <button id="confirm-ok" type="button">Delete</button>
+        </form>
+      </dialog>
+    </div>
+  </body>
+</html>
