@@ -1,5 +1,8 @@
 let postArray;
 
+/**
+ * Default posts to populate blog with if no local storage data found
+ */
 const defaultPosts = [
   {
     title: 'How to Get a Job',
@@ -13,12 +16,18 @@ const defaultPosts = [
   },
 ];
 
+/**
+ * Empty post template fields
+ */
 const emptyPost = {
   title: '',
   date: '',
   description: '',
 };
 
+/**
+ * Easy getters for all used DOM elements
+ */
 const Elements = {
   addPostBtn: document.getElementById('add-post'),
   dialog: document.getElementById('dialog'),
@@ -38,6 +47,9 @@ const Elements = {
   },
 };
 
+/**
+ * Object to manage postArray data
+ */
 const Posts = {
   get: key => postArray[Posts.getIndex(key)],
   getIndex: key => postArray.findIndex(post => post.key === key),
@@ -56,6 +68,9 @@ const Posts = {
   },
 };
 
+/**
+ * Object to manage interactions with localStorage
+ */
 const LocalStorage = {
   addPost: post => {
     const posts = JSON.parse(window.localStorage.getItem('posts')) ?? [];
@@ -66,6 +81,9 @@ const LocalStorage = {
   getAllPosts: () => JSON.parse(window.localStorage.getItem('posts')) ?? [],
 };
 
+/**
+ * Object to manage interactions with the dialog component
+ */
 const Dialog = {
   setPromptFields: fields => {
     Object.keys(fields).forEach(key => {
@@ -142,6 +160,9 @@ const Dialog = {
   },
 };
 
+/**
+ * Object to handle rendering our page UI
+ */
 const RenderHandler = {
   addPost: post => {
     const { title, date, description, key } = post;
@@ -195,6 +216,9 @@ const RenderHandler = {
   },
 };
 
+/**
+ * Various button event listeners
+ */
 const EventListeners = {
   closeDialog: () => Dialog.close(),
   createPost: async () => {
@@ -219,6 +243,9 @@ const EventListeners = {
   },
 };
 
+/**
+ * Set up page functionality
+ */
 const initialize = () => {
   let posts = LocalStorage.getAllPosts();
   if (posts.length === 0) {
